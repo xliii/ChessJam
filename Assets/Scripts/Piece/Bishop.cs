@@ -19,4 +19,9 @@ public class Bishop : Piece {
 
 		return moves;
 	}
+
+	public override PieceType Type()
+	{
+		return PieceType.BISHOP;
+	}
 }

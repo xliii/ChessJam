@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   size: {x: 7, y: 7}
-  direction: 0
   finish: {x: 0, y: 0}
+  direction: 0
+  items:
+  - pieceType: 0
+    position: {x: 2, y: 0}
+  - pieceType: 5
+    position: {x: 1, y: 0}

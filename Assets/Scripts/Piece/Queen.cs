@@ -18,4 +18,9 @@ public class Queen : Piece {
 
 		return moves;
 	}
+
+	public override PieceType Type()
+	{
+		return PieceType.QUEEN;
+	}
 }

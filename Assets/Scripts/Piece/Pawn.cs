@@ -13,10 +13,12 @@ public class Pawn : Piece
         var direction = The.Board.Direction.value();
 
         var pos = Position + direction;
-        if (!The.Board.OutOfRange(pos) && The.Board.Empty(pos))
+        if (The.Board.OutOfRange(pos) || !The.Board.Empty(pos))
         {
-            moves.Add(pos);
+            return moves;
         }
+        
+        moves.Add(pos);
 
         if (!moved)
         {
@@ -33,5 +35,10 @@ public class Pawn : Piece
     {
         yield return base.Move(marker);
         moved = true;
+    }
+
+    public override PieceType Type()
+    {
+        return PieceType.PAWN;
     }
 }

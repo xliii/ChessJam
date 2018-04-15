@@ -18,4 +18,9 @@ public class Rook : Piece {
 
 		return moves;
 	}
+
+	public override PieceType Type()
+	{
+		return PieceType.ROOK;
+	}
 }

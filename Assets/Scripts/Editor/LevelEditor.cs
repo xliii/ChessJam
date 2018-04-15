@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEditor;
 
 [CustomEditor(typeof(LevelConfig))]
@@ -10,10 +10,13 @@ public class LevelEditor : Editor {
 
 		LevelConfig level = (LevelConfig) target;
 
-		String message;
-		if (level.Invalid(out message))
+		HashSet<string> violations;
+		if (level.Invalid(out violations))
 		{
-			EditorGUILayout.HelpBox(message, MessageType.Error);
+			foreach (var violation in violations)
+			{
+				EditorGUILayout.HelpBox(violation, MessageType.Error);	
+			}
 		}
 	}
 }

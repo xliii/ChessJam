@@ -9,4 +9,6 @@ public class PrefabConfiguration : ScriptableObject
     public GameObject blackSquare;
 
     public GameObject finishSquare;
+
+    public PieceSet white;
 }

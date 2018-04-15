@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(Board))]
@@ -10,8 +12,19 @@ public class BoardEditor : Editor {
 
 		Board board = (Board) target;
 
-		string message;
-		bool invalid = board.level.Invalid(out message);
+		HashSet<string> violations = new HashSet<string>();
+
+		bool invalid;
+		if (board.level == null)
+		{
+			invalid = true;
+			violations.Add("Level config missing");
+		}
+		else
+		{
+			invalid = board.level.Invalid(out violations);
+		}
+		
 		EditorGUI.BeginDisabledGroup(invalid);
 		if (GUILayout.Button("Generate"))
 		{
@@ -22,7 +35,10 @@ public class BoardEditor : Editor {
 
 		if (invalid)
 		{
-			EditorGUILayout.HelpBox(message, MessageType.Error);
+			foreach (var violation in violations)
+			{
+				EditorGUILayout.HelpBox(violation, MessageType.Error);	
+			}
 		}
 	}
 }

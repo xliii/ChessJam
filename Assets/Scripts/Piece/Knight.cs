@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -25,5 +24,10 @@ public class Knight : Piece
 			if (The.Board.OutOfRange(pos)) return false;
 			return The.Board.Empty(pos);
 		}).ToList();
+	}
+
+	public override PieceType Type()
+	{
+		return PieceType.KNIGHT;
 	}
 }

@@ -22,4 +22,9 @@ public class King : Piece {
             Events.TriggerEvent(Events.EventType.WIN);    
         }
     }
+
+    public override PieceType Type()
+    {
+        return PieceType.KING;
+    }
 }

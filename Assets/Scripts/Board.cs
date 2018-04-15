@@ -5,6 +5,8 @@ public class Board : MonoBehaviour
 {
 	public LevelConfig level;
 
+	public Transform items;
+
 	public BoardDirection Direction
 	{
 		get { return level.direction; }
@@ -88,13 +90,26 @@ public class Board : MonoBehaviour
 				}
 			}
 		}
+		
+		foreach (var item in level.items)
+		{
+			var piece = The.config.prefabConfig.white.GetPiece(item.pieceType);
+			var pos = item.position;
+			Instantiate(piece, new Vector3(pos.x, items.position.y, pos.y), Quaternion.identity, items);
+		}
 	}
 
 	public void Clear()
 	{
-		for (var i = transform.childCount - 1; i >= 0; i--)
+		ClearChildren(transform);
+		ClearChildren(items);
+	}
+
+	private void ClearChildren(Transform container)
+	{
+		for (var i = container.childCount - 1; i >= 0; i--)
 		{
-			var child = transform.GetChild(i);
+			var child = container.GetChild(i);
 			DestroyImmediate(child.gameObject);
 		}
 	}

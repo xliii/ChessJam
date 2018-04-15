@@ -31,6 +31,8 @@ public abstract class Piece : MonoBehaviour
 
     protected abstract List<Vector2Int> Moves();
 
+    public abstract PieceType Type();
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
