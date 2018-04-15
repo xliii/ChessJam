@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbefd56ef7fcd14aab5a70d7931e02c, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  size: {x: 0, y: 0}
+  size: {x: 7, y: 7}
   direction: 0
   finish: {x: 0, y: 0}

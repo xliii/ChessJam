@@ -17,7 +17,7 @@ public class King : Piece {
     public override IEnumerator Move(MoveMarker marker)
     {
         yield return base.Move(marker);
-        if (marker.Position == The.Board.finish)
+        if (marker.Position == The.Board.Finish)
         {
             Events.TriggerEvent(Events.EventType.WIN);    
         }

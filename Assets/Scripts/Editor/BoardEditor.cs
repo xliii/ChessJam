@@ -10,8 +10,8 @@ public class BoardEditor : Editor {
 
 		Board board = (Board) target;
 
-		bool invalid = board.OutOfRange(board.finish);
-
+		string message;
+		bool invalid = board.level.Invalid(out message);
 		EditorGUI.BeginDisabledGroup(invalid);
 		if (GUILayout.Button("Generate"))
 		{
@@ -22,7 +22,7 @@ public class BoardEditor : Editor {
 
 		if (invalid)
 		{
-			EditorGUILayout.HelpBox("Finish out of bounds", MessageType.Error);
+			EditorGUILayout.HelpBox(message, MessageType.Error);
 		}
 	}
 }

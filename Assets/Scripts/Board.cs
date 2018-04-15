@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
-	public Vector2Int size;
+	public LevelConfig level;
 
-	public BoardDirection direction;
+	public BoardDirection Direction
+	{
+		get { return level.direction; }
+	}
 
-	public Vector2Int finish;
+	public Vector2Int Finish
+	{
+		get { return level.finish; }
+	}
 
 	void Awake()
 	{
@@ -50,7 +56,7 @@ public class Board : MonoBehaviour
 
 	public bool OutOfRange(Vector2Int pos)
 	{
-		return pos.y < 0 || pos.x < 0 || pos.x >= size.x || pos.y >= size.y;
+		return level.OutOfRange(pos);
 	}
 
 	public bool Empty(Vector2Int pos)
@@ -68,11 +74,11 @@ public class Board : MonoBehaviour
 
 	public void Generate()
 	{
-		for (var x = 0; x < size.x; x++)
+		for (var x = 0; x < level.size.x; x++)
 		{
-			for (var y = 0; y < size.y; y++)
+			for (var y = 0; y < level.size.y; y++)
 			{
-				if (finish == new Vector2Int(x, y))
+				if (Finish == new Vector2Int(x, y))
 				{
 					Instantiate(The.config.prefabConfig.finishSquare, new Vector3(x, transform.position.y, y), Quaternion.identity, transform);
 				}

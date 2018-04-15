@@ -14,6 +14,6 @@ public class BoardDirectionText : MonoBehaviour
     
     public void Update()
     {
-        text.text = The.Board.direction.ToString();
+        text.text = The.Board.Direction.ToString();
     }
 }

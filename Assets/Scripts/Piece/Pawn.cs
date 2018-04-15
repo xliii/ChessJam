@@ -10,7 +10,7 @@ public class Pawn : Piece
     protected override List<Vector2Int> Moves()
     {
         List<Vector2Int> moves = new List<Vector2Int>();
-        var direction = The.Board.direction.value();
+        var direction = The.Board.Direction.value();
 
         var pos = Position + direction;
         if (!The.Board.OutOfRange(pos) && The.Board.Empty(pos))
