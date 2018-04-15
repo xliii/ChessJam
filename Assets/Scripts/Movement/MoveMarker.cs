@@ -7,12 +7,11 @@ public class MoveMarker : MonoBehaviour {
         gameObject.SetActive(value);
     }
 
-    public string Position
+    public Vector2Int Position
     {
         get
         {
-            var pos = transform.position;
-            return string.Format("{0}:{1}", (int) pos.x, (int) pos.z);
+            return new Vector2Int((int) transform.position.x, (int) transform.position.z);
         }
     }
 }

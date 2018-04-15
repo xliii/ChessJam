@@ -9,6 +9,12 @@ public class InputHandler : MonoBehaviour
 	void Start()
 	{
 		camera = GetComponent<Camera>();
+		Events.RegisterEvent(Events.EventType.WIN, LockInput);
+	}
+
+	private void LockInput()
+	{
+		movementLock++;
 	}
 
 	private int movementLock;
@@ -65,7 +71,6 @@ public class InputHandler : MonoBehaviour
 	{
 		if (The.selectedPiece != null)
 		{
-			Debug.Log("Deselect " + The.selectedPiece);
 			The.selectedPiece.Deselect();
 			The.selectedPiece = null;
 		}		

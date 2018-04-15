@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(Board))]
@@ -12,10 +10,19 @@ public class BoardEditor : Editor {
 
 		Board board = (Board) target;
 
+		bool invalid = board.OutOfRange(board.finish);
+
+		EditorGUI.BeginDisabledGroup(invalid);
 		if (GUILayout.Button("Generate"))
 		{
 			board.Clear();
 			board.Generate();
+		}
+		EditorGUI.EndDisabledGroup();
+
+		if (invalid)
+		{
+			EditorGUILayout.HelpBox("Finish out of bounds", MessageType.Error);
 		}
 	}
 }

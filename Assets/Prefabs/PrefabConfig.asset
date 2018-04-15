@@ -13,3 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveMarker: {fileID: 114639936465774310, guid: a7fb672a96d27734097cbd154aa2be1a,
     type: 2}
+  whiteSquare: {fileID: 1750215605527956, guid: c98fc2b2756e72049be1bcfc0f1bd563,
+    type: 2}
+  blackSquare: {fileID: 1787993356678664, guid: d478679b661904e4bb951e6d51c34100,
+    type: 2}
+  finishSquare: {fileID: 1496233140758648, guid: 110e53d7062df564f80155a77e4ef370,
+    type: 2}

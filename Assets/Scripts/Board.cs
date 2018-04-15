@@ -5,11 +5,9 @@ public class Board : MonoBehaviour
 {
 	public Vector2Int size;
 
-	public GameObject white;
-
-	public GameObject black;
-
 	public BoardDirection direction;
+
+	public Vector2Int finish;
 
 	void Awake()
 	{
@@ -74,7 +72,14 @@ public class Board : MonoBehaviour
 		{
 			for (var y = 0; y < size.y; y++)
 			{
-				Instantiate(prefab(x, y), new Vector3(x, transform.position.y, y), Quaternion.identity, transform);
+				if (finish == new Vector2Int(x, y))
+				{
+					Instantiate(The.config.prefabConfig.finishSquare, new Vector3(x, transform.position.y, y), Quaternion.identity, transform);
+				}
+				else
+				{
+					Instantiate(prefab(x, y), new Vector3(x, transform.position.y, y), Quaternion.identity, transform);	
+				}
 			}
 		}
 	}
@@ -90,6 +95,6 @@ public class Board : MonoBehaviour
 
 	private GameObject prefab(int x, int y)
 	{
-		return (x + y) % 2 == 0 ? black : white;
+		return (x + y) % 2 == 0 ? The.config.prefabConfig.blackSquare : The.config.prefabConfig.whiteSquare;
 	}
 }

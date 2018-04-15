@@ -1,15 +1,15 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine;
 
-[RequireComponent(typeof(Text))]
+[RequireComponent(typeof(TextMeshProUGUI))]
 [ExecuteInEditMode]
 public class BoardDirectionText : MonoBehaviour
 {
-    private Text text;
+    private TextMeshProUGUI text;
 
     private void Start()
     {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
     }
     
     public void Update()
