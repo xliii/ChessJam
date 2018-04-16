@@ -9,11 +9,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cbefd56ef7fcd14aab5a70d7931e02c, type: 3}
-  m_Name: Level 1
+  m_Name: Level 2
   m_EditorClassIdentifier: 
-  size: {x: 2, y: 2}
-  finish: {x: 1, y: 0}
+  size: {x: 3, y: 3}
+  finish: {x: 2, y: 0}
   direction: 0
   items:
   - pieceType: 5
+    position: {x: 0, y: 2}
+  - pieceType: 1
+    position: {x: 2, y: 0}
+  - pieceType: 1
+    position: {x: 1, y: 2}
+  - pieceType: 1
     position: {x: 0, y: 1}
+  - pieceType: 1
+    position: {x: 0, y: 0}
+  - pieceType: 1
+    position: {x: 2, y: 2}
+  - pieceType: 0
+    position: {x: 1, y: 1}
+  - pieceType: 1
+    position: {x: 2, y: 1}

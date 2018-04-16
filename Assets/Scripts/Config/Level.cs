@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Level", menuName = "Config/Level")]
-public class LevelConfig : ScriptableObject
+public class Level : ScriptableObject
 {
     public Vector2Int size;
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
-	public LevelConfig level;
+	public Level level;
 
 	public Transform items;
 
@@ -76,6 +76,7 @@ public class Board : MonoBehaviour
 
 	public void Generate()
 	{
+		Clear();
 		for (var x = 0; x < level.size.x; x++)
 		{
 			for (var y = 0; y < level.size.y; y++)
@@ -99,7 +100,7 @@ public class Board : MonoBehaviour
 		}
 	}
 
-	public void Clear()
+	void Clear()
 	{
 		ClearChildren(transform);
 		ClearChildren(items);

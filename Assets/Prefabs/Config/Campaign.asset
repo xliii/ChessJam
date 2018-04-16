@@ -8,12 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cbefd56ef7fcd14aab5a70d7931e02c, type: 3}
-  m_Name: Level 1
+  m_Script: {fileID: 11500000, guid: d54f713795ae34249a859b7d18900b5b, type: 3}
+  m_Name: Campaign
   m_EditorClassIdentifier: 
-  size: {x: 2, y: 2}
-  finish: {x: 1, y: 0}
-  direction: 0
-  items:
-  - pieceType: 5
-    position: {x: 0, y: 1}
+  levels:
+  - {fileID: 11400000, guid: 2df5121ab94aa224fb68249c009f6a8a, type: 2}
+  - {fileID: 11400000, guid: 7c47964b329cc29498aa27bbee083d39, type: 2}

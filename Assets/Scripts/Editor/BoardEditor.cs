@@ -28,7 +28,6 @@ public class BoardEditor : Editor {
 		EditorGUI.BeginDisabledGroup(invalid);
 		if (GUILayout.Button("Generate"))
 		{
-			board.Clear();
 			board.Generate();
 		}
 		EditorGUI.EndDisabledGroup();
