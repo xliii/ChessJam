@@ -18,7 +18,7 @@ MonoBehaviour:
   - pieceType: 5
     position: {x: 0, y: 2}
   - pieceType: 1
-    position: {x: 2, y: 0}
+    position: {x: 1, y: 0}
   - pieceType: 1
     position: {x: 1, y: 2}
   - pieceType: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
     position: {x: 0, y: 0}
   - pieceType: 1
     position: {x: 2, y: 2}
-  - pieceType: 0
+  - pieceType: 1
     position: {x: 1, y: 1}
   - pieceType: 1
     position: {x: 2, y: 1}

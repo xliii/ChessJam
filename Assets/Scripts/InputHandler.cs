@@ -4,11 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class InputHandler : MonoBehaviour
 {
-	private Camera camera;
+	private Camera _camera;
 	
 	void Start()
 	{
-		camera = GetComponent<Camera>();
+		_camera = GetComponent<Camera>();
 		Events.RegisterEvent(Events.EventType.WIN, LockInput);
 	}
 
@@ -32,7 +32,7 @@ public class InputHandler : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
 			RaycastHit hit;
-			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+			if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit))
 			{
 				var piece = hit.transform.GetComponent<Piece>();
 				if (piece != null)
