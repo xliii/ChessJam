@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
+	public GameObject gameScreen;
 	public GameObject victoryScreen;
 
 	// Use this for initialization
@@ -11,6 +13,12 @@ public class UIController : MonoBehaviour
 
 	void ShowVictoryScreen()
 	{
+		gameScreen.SetActive(false);
 		victoryScreen.SetActive(true);
+	}
+
+	public void GoToMenu()
+	{
+		SceneManager.LoadScene("Menu");
 	}
 }

@@ -2,12 +2,13 @@
 using UnityEditor;
 #endif
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
 	public void Play()
 	{
-		Debug.Log("PLAY!");
+		SceneManager.LoadScene("Game");
 	}
 
 	public void Quit()
