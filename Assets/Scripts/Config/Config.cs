@@ -10,6 +10,13 @@ public class Config : MonoBehaviour
 
 	void Awake()
 	{
+		if (The.config != null)
+		{
+			Destroy(gameObject);
+			return;
+		}
+
 		The.config = this;
+		DontDestroyOnLoad(this);
 	}
 }

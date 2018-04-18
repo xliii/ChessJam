@@ -46,7 +46,6 @@ public class InputHandler : MonoBehaviour
 				var moveMarker = hit.transform.GetComponent<MoveMarker>();
 				if (moveMarker != null)
 				{
-					Debug.Log("Move " + The.selectedPiece + " to " + moveMarker.Position);
 					StartCoroutine(MoveCoroutine(moveMarker));
 					return;
 				}
