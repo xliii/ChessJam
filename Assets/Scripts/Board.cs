@@ -22,6 +22,14 @@ public class Board : MonoBehaviour
 		The.Board = this;
 	}
 
+	void Start()
+	{
+		Events.RegisterEvent(Events.EventType.LEVEL_START, OnLevelStart);
+		Events.RegisterEvent(Events.EventType.GAME_COMPLETED, OnGameComplete);
+		
+		Events.TriggerEvent(Events.EventType.LEVEL_START);
+	}
+
 	private Dictionary<Vector2Int, Piece> objects = new Dictionary<Vector2Int, Piece>();
 
 	private List<MoveMarker> moveMarkers = new List<MoveMarker>();
@@ -74,6 +82,17 @@ public class Board : MonoBehaviour
 		}
 	}
 
+	void OnLevelStart()
+	{
+		level = The.config.campaign.GetLevel(Progress.CurrentLevel);
+		Generate();
+	}
+
+	void OnGameComplete()
+	{
+		Debug.Log("GAME COMPLETE");
+	}
+
 	public void Generate()
 	{
 		Clear();
@@ -102,6 +121,8 @@ public class Board : MonoBehaviour
 
 	void Clear()
 	{
+		objects.Clear();
+		moveMarkers.Clear();
 		ClearChildren(transform);
 		ClearChildren(items);
 	}

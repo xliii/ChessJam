@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +6,9 @@ public class Events {
 
 	public enum EventType
 	{
-		WIN
+		LEVEL_VICTORY,
+		LEVEL_START,
+		GAME_COMPLETED
 	}
 
 	private static Dictionary<EventType, UnityEvent> events = new Dictionary<EventType, UnityEvent>();

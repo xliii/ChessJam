@@ -19,7 +19,7 @@ public class King : Piece {
         yield return base.Move(marker);
         if (marker.Position == The.Board.Finish)
         {
-            Events.TriggerEvent(Events.EventType.WIN);    
+            Events.TriggerEvent(Events.EventType.LEVEL_VICTORY);    
         }
     }
 

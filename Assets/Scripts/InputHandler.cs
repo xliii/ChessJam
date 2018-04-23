@@ -9,12 +9,18 @@ public class InputHandler : MonoBehaviour
 	void Start()
 	{
 		_camera = GetComponent<Camera>();
-		Events.RegisterEvent(Events.EventType.WIN, LockInput);
+		Events.RegisterEvent(Events.EventType.LEVEL_VICTORY, LockInput);
+		Events.RegisterEvent(Events.EventType.LEVEL_START, UnlockInput);
 	}
 
 	private void LockInput()
 	{
 		movementLock++;
+	}
+
+	private void UnlockInput()
+	{
+		movementLock--;
 	}
 
 	private int movementLock;
@@ -58,12 +64,12 @@ public class InputHandler : MonoBehaviour
 
 	IEnumerator MoveCoroutine(MoveMarker moveMarker)
 	{
-		movementLock++;
+		LockInput();
 		The.Board.ClearPiece(The.selectedPiece);
 		yield return The.selectedPiece.Move(moveMarker);
 		The.Board.RegisterPiece(The.selectedPiece);
 		Deselect();
-		movementLock--;
+		UnlockInput();
 	}
 
 	void Deselect()

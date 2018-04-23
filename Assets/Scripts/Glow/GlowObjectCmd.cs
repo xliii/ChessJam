@@ -40,6 +40,11 @@ public class GlowObjectCmd : MonoBehaviour
 		Enabled = true;
 	}
 
+	private void OnDestroy()
+	{
+		GlowController.UnregisterObject(this);
+	}
+
 	/// <summary>
 	/// Update color, disable self if we reach our target color.
 	/// </summary>

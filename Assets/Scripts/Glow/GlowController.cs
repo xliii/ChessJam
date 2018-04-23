@@ -45,14 +45,19 @@ public class GlowController : MonoBehaviour
 		GetComponent<Camera>().AddCommandBuffer(CameraEvent.BeforeImageEffects, _commandBuffer);
 	}
 
-	/// <summary>
-	/// TODO: Add a degister method.
-	/// </summary>
 	public static void RegisterObject(GlowObjectCmd glowObj)
 	{
 		if (_instance != null)
 		{
 			_instance._glowableObjects.Add(glowObj);
+		}
+	}
+
+	public static void UnregisterObject(GlowObjectCmd glowObj)
+	{
+		if (_instance != null)
+		{
+			_instance._glowableObjects.Remove(glowObj);
 		}
 	}
 
