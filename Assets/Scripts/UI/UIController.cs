@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-		Events.RegisterEvent(Events.EventType.LEVEL_VICTORY, ShowVictoryScreen);
+		Events.RegisterEvent(Events.EventType.LEVEL_VICTORY, OnVictory);
 		Events.RegisterEvent(Events.EventType.LEVEL_START, ShowGameScreen);
 	}
 
@@ -16,6 +16,18 @@ public class UIController : MonoBehaviour
 	{
 		gameScreen.SetActive(true);
 		victoryScreen.SetActive(false);
+	}
+
+	void OnVictory()
+	{
+		if (Progress.LastLevel)
+		{
+			SceneManager.LoadScene("Epilogue");
+		}
+		else
+		{
+			ShowVictoryScreen();
+		}
 	}
 
 	void ShowVictoryScreen()
@@ -36,12 +48,7 @@ public class UIController : MonoBehaviour
 
 	public void NextLevel()
 	{
-		if (Progress.NextLevel())
-		{
-			Events.TriggerEvent(Events.EventType.LEVEL_START);
-			return;
-		}
-		
-		Events.TriggerEvent(Events.EventType.GAME_COMPLETED);
+		Progress.NextLevel();
+		Events.TriggerEvent(Events.EventType.LEVEL_START);
 	}
 }

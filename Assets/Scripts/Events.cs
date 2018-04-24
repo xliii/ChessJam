@@ -7,8 +7,7 @@ public class Events {
 	public enum EventType
 	{
 		LEVEL_VICTORY,
-		LEVEL_START,
-		GAME_COMPLETED
+		LEVEL_START
 	}
 
 	private static Dictionary<EventType, UnityEvent> events = new Dictionary<EventType, UnityEvent>();

@@ -21,19 +21,19 @@ public class Progress
 		}
 	}
 
-	/**
-	 * Returns true if next level is available, false otherwise (game is completed)
-	 */
-	public static bool NextLevel()
+	public static bool LastLevel
+	{
+		get
+		{
+			return CurrentLevel == The.config.campaign.Size - 1;	
+		}
+	}
+
+	public static void NextLevel()
 	{
 		var nextLevel = CurrentLevel + 1;
-		if (nextLevel >= The.config.campaign.Size)
-		{
-			return false;
-		}
 		UnlockLevel(nextLevel);
 		SetLevel(nextLevel);
-		return true;
 	}
 
 	private static void UnlockLevel(int level)

@@ -25,7 +25,6 @@ public class Board : MonoBehaviour
 	void Start()
 	{
 		Events.RegisterEvent(Events.EventType.LEVEL_START, OnLevelStart);
-		Events.RegisterEvent(Events.EventType.GAME_COMPLETED, OnGameComplete);
 		
 		Events.TriggerEvent(Events.EventType.LEVEL_START);
 	}
@@ -86,11 +85,6 @@ public class Board : MonoBehaviour
 	{
 		level = The.config.campaign.GetLevel(Progress.CurrentLevel);
 		Generate();
-	}
-
-	void OnGameComplete()
-	{
-		Debug.Log("GAME COMPLETE");
 	}
 
 	public void Generate()
